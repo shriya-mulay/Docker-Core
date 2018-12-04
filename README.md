@@ -5,9 +5,13 @@ An easy way to setup environment to analyze gluster coredump files
 # Requirements :
 1. Docker must be installed
 
-Make sure the Dockerfile and n.sh are in the same directory.
+Make sure you have following files in the same directory
+- script.sh
+- installed-rpms
+- Dockerfile
+- core file
+- yum.repos.d directory (copied from sos-report)
 
-In order to install the packages inside the conatiner, you must have a `installed-rpms` and `core` file from sosreport in the same directory
 
 This Dockerfile by default uses rhel 7.5, if you want some specific version, do make changes in the Dockerfile
 -
@@ -15,19 +19,29 @@ This Dockerfile by default uses rhel 7.5, if you want some specific version, do 
 ~~~
 FROM rhel7.2
 ~~~
+You must use `yum.repos.d` directory from the sos-report provided
+-
+Just copy the directory from the sos-report to the folder 
+
+~~~
+cp -r path-to-sos-report/etc/yum.repos.d path-to-Docker-Core/ 
+~~~
+
 
 You need to follow the steps as below :
 1. Make sure you have the files in the same directory
+
 2. Build the Docker conatiner
 ~~~
-docker build -t conatiner-name /path-where-dockerfile-exists
+docker build -t conatiner-name /path-where-Dockerfile-exists
 ~~~
 3. Once your container is built, now it's time to run it
 
 ~~~
-docker run -it -v /dir-path/installed-rpms:/dir-path/installed-rpms:Z container-name bash
+docker run -it -v /path-to-Docker-Core/:/core/:Z new bash
 ~~~
+*Docker-Core is the directory created after pulling this repo*
 
 this will create a new container from the image we have previously built
 
-4. The file `n.sh` will install all the packages that are needed to analyaze the gluster coredump core file from the `installed-rpms` file we have provided in the above command
+4. The file `script.sh` will install all the packages that are needed to analyaze the gluster coredump core file from the `installed-rpms` file we have provided in the above command
