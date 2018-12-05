@@ -3,15 +3,7 @@ An easy way to setup environment to analyze gluster coredump files
 
 
 # Requirements :
-1. Docker must be installed
-
-Make sure you have following files in the same directory
-- script.sh
-- installed-rpms
-- Dockerfile
-- core file
-- yum.repos.d directory (copied from sos-report)
-
+ Docker must be installed
 
 - This Dockerfile by default uses rhel 7.5, if you want some specific version, do make changes in the Dockerfile
 
@@ -39,9 +31,15 @@ docker build -t name /path-where-Dockerfile-exists
 3. Once your image is built, now it's time to run it
 
 ~~~
-docker run -it -v /path-to-Docker-Core/:/core/:Z name-of-the-image bash
+docker run -it -v /path-to-Dir/:/core/:Z name-of-the-image bash
 ~~~
-*Docker-Core is the directory created after pulling this repo*
+*Dir is a directory where all the files specified in the below exist*
+Make sure you have following files in the same directory
+- script.sh
+- installed-rpms
+- Dockerfile
+- core file
+- yum.repos.d directory (copied from sos-report)
 
 this will create a new container from the image we have previously built
 
