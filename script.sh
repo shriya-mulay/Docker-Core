@@ -38,7 +38,7 @@
 
         fi
 
-        debuginfo-install -y $GLIBC $GLUSTER $PACKAGE
+        debuginfo-install -y $GLIBC $GLUSTER 
         if [ $? != 0 ]; then
                 echo "Error installing debug packages"
                  exit 0
