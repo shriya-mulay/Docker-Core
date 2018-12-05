@@ -15,7 +15,7 @@ Make sure you have following files in the same directory
 
 - This Dockerfile by default uses rhel 7.5, if you want some specific version, do make changes in the Dockerfile
 
- for example, if you want rhel7.2 conatiner then simply change the `FROM` field
+ for example, if you want rhel7.2 image then simply change the `FROM` field
 ~~~
 FROM rhel7.2
 ~~~
