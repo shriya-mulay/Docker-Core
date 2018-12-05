@@ -29,9 +29,10 @@ cp -r path-to-sos-report/etc/yum.repos.d path-to-Docker-Core/
 docker build -t name /path-where-Dockerfile-exists
 ~~~
 3. Once your image is built, now it's time to run it
+here we are mounting the *Dir* from the base machine to the /core directory of the container
 
 ~~~
-docker run -it -v /path-to-Dir/:/core/:Z name-of-the-image bash
+docker run -it -v /Dir/:/core/:Z name-of-the-image bash
 ~~~
 *Dir is a directory where all the files specified below exist*
 Make sure you have following files in the same directory
