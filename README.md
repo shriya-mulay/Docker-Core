@@ -33,7 +33,7 @@ docker build -t name /path-where-Dockerfile-exists
 ~~~
 docker run -it -v /path-to-Dir/:/core/:Z name-of-the-image bash
 ~~~
-*Dir is a directory where all the files specified in the below exist*
+*Dir is a directory where all the files specified below exist*
 Make sure you have following files in the same directory
 - script.sh
 - installed-rpms
