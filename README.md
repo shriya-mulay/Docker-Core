@@ -32,7 +32,14 @@ docker build -t name /path-where-Dockerfile-exists
 here we are mounting the *Dir* from the base machine to the /core directory of the container
 
 ~~~
-docker run -it -v /Dir/:/core/:Z name-of-the-image bash
+#this command will make the container run in the background
+docker run -it -v /Dir/:/core/:Z -d name-of-the-image
+
+#to check running containers
+docker ps
+
+#use this command to enter the running container
+docker exec -it <PID of that container> bash
 ~~~
 *Dir is a directory where all the files specified below exist*
 Make sure you have following files in the same directory
