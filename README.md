@@ -41,7 +41,7 @@ docker ps
 #use this command to enter the running container
 docker exec -it <PID of that container> bash
 ~~~
-*Dir is a directory where all the files specified below exist*
+*Dir is a directory where all the files specified below exist* <br>
 Make sure you have following files in the same directory
 - script.sh
 - installed-rpms
